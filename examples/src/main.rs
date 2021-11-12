@@ -62,7 +62,7 @@ ryd::ryd! {
                 arrête i;
             };
 
-            svo lengi sem x < val {
+            á meðan x < val {
                 x += 1;
             }
 
