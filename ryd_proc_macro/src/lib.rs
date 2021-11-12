@@ -48,9 +48,10 @@ fn replace_ident(ident: Ident) -> Option<TokenTree> {
         "où" => "where",
         "pour" => "for",
         "prendre_ou_insérer_avec" => "get_or_insert_with",
-        "principale" => "main",
+        "aðal" => "main",
         "public" => "pub",
-        "que" => None?,
+        "svo" => None?,
+        "sem" => None?,
         "renvoie" => "return",
         "réalisation" => "impl",
         "réf" => "ref",
@@ -62,8 +63,8 @@ fn replace_ident(ident: Ident) -> Option<TokenTree> {
         "statique" => "static",
         "structure" => "struct",
         "suppose" => "expect",
-        "tant" => "while",
-        "utilisons" => "use",
+        "lengi" => "while",
+        "nota" => "use",
         "vers" => "into",
         "vrai" => "true",
         "énumération" => "enum",
@@ -102,7 +103,7 @@ fn replace_stream(ts: TokenStream, out: &mut Vec<TokenTree>) {
 }
 
 #[proc_macro]
-pub fn rouille(item: TokenStream) -> TokenStream {
+pub fn ryd(item: TokenStream) -> TokenStream {
     let mut returned = Vec::new();
     replace_stream(item, &mut returned);
     let mut out = TokenStream::new();

@@ -1,10 +1,10 @@
-name: Rouille
+name: Ryd
 
 on:
   push:
-    branches: [ principale ]
+    branches: [ aðal ]
   pull_request:
-    branches: [ principale ]
+    branches: [ aðal ]
 
 jobs:
   ic:
@@ -26,7 +26,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
           override: true
 
-      - name: Lancer les exemples
+      - name: Keyra dæmin
         uses: actions-rs/cargo@v1
         with:
           command: run

@@ -1,4 +1,4 @@
-# rouille
+# Ryð
 
 ![](https://github.com/bnjbvr/rouille/raw/principale/logo.jpeg)
 
@@ -26,7 +26,7 @@ Here's an example of what can be achieved with Rouille:
 
 ```rust
 rouille::rouille! {
-    utilisons std::collections::Dictionnaire comme Dico;
+    nota std::collections::Dictionnaire comme Dico;
 
     convention CléValeur {
         fonction écrire(&soi, clé: Chaine, valeur: Chaine);

@@ -1,7 +1,7 @@
-rouille::rouille! {
-    externe cagette rouille;
+ryd::ryd! {
+    externe cagette ryd;
 
-    utilisons std::collections::Dictionnaire comme Dico;
+    nota std::collections::Dictionnaire comme Dico;
 
     convention CléValeur {
         fonction écrire(&soi, clé: Chaine, valeur: Chaine);
@@ -47,7 +47,7 @@ rouille::rouille! {
         exemple().attend;
     }
 
-    fonction principale() {
+    fonction aðal() {
         soit mutable x = 31;
 
         selon x {
@@ -62,7 +62,7 @@ rouille::rouille! {
                 arrête i;
             };
 
-            tant que x < val {
+            svo lengi sem x < val {
                 x += 1;
             }
 
