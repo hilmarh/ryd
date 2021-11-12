@@ -29,25 +29,25 @@ rouille::rouille! {
     nota std::collections::Dictionnaire comme Dico;
 
     convention CléValeur {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine);
-        fonction lire(&soi, clé: Chaine) -> PeutÊtre<&Chaine>;
+        fall écrire(&soi, clé: Strengur, valeur: Strengur);
+        fall lire(&soi, clé: Strengur) -> PeutÊtre<&Strengur>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaine, Chaine>> = Rien;
+    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Strengur, Strengur>> = Ekkert;
 
     structure Concrète;
 
     réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine) {
-            soit dico = dangereux {
+        fall écrire(&soi, clé: Strengur, valeur: Strengur) {
+            láta dico = dangereux {
                 DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
             };
             dico.insérer(clé, valeur);
         }
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
+        fall lire(&soi, clé: Strengur) -> Résultat<PeutÊtre<&Strengur>, Strengur> {
+            ef láta Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
                 Bien(dico.lire(&clé))
-            } sinon {
+            } annars {
                 Arf("fetchez le dico".vers())
             }
         }
@@ -59,7 +59,7 @@ rouille::rouille! {
 
 ```rust
 #[légal(code_inaccessible)]
-fonction secondaire() {
+fall secondaire() {
     merde!("oh non"); // for the true French experience
     calisse!("tabarnak"); // for friends speaking fr-ca
     oups!("fetchez la vache"); // in SFW contexts

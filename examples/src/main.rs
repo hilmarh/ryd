@@ -4,61 +4,61 @@ ryd::ryd! {
     nota std::collections::Dictionnaire comme Dico;
 
     convention CléValeur {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine);
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine>;
+        fall écrire(&soi, clé: Strengur, valeur: Strengur);
+        fall lire(&soi, clé: Strengur) -> Résultat<PeutÊtre<&Strengur>, Strengur>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaine, Chaine>> = Rien;
+    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Strengur, Strengur>> = Ekkert;
 
     structure Concrète;
 
     réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaine, valeur: Chaine) {
-            soit dico = dangereux {
+        fall écrire(&soi, clé: Strengur, valeur: Strengur) {
+            láta dico = dangereux {
                 DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
             };
             dico.insérer(clé, valeur);
         }
-        fonction lire(&soi, clé: Chaine) -> Résultat<PeutÊtre<&Chaine>, Chaine> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
+        fall lire(&soi, clé: Strengur) -> Résultat<PeutÊtre<&Strengur>, Strengur> {
+            ef láta Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
                 Bien(dico.lire(&clé))
-            } sinon {
+            } annars {
                 Arf("fetchez le dico".vers())
             }
         }
     }
 
-    public(cagette) fonction peut_etre(i: u32) -> PeutÊtre<Résultat<u32, Chaine>> {
-        si i % 2 == 1 {
-            si i == 42 {
-                Quelque(Arf(Chaine::depuis("merde")))
-            } sinon {
+    public(cagette) fall peut_etre(i: u32) -> PeutÊtre<Résultat<u32, Strengur>> {
+        ef i % 2 == 1 {
+            ef i == 42 {
+                Quelque(Arf(Strengur::depuis("merde")))
+            } annars {
                 Quelque(Bien(33))
             }
-        } sinon {
-            Rien
+        } annars {
+            Ekkert
         }
     }
 
-    asynchrone fonction exemple() {
+    asynchrone fall exemple() {
     }
 
-    asynchrone fonction exemple2() {
+    asynchrone fall exemple2() {
         exemple().attend;
     }
 
-    fonction aðal() {
-        soit mutable x = 31;
+    fall aðal() {
+        láta mutable x = 31;
 
         selon x {
             42 => {
-                affiche!("omelette du fromage")
+                affiche!("þetta reddast")
             }
-            _ => affiche!("voila")
+            _ => affiche!("gjörðu svo vel")
         }
 
         pour i de 0..10 {
-            soit val = boucle {
+            láta val = boucle {
                 arrête i;
             };
 
@@ -66,9 +66,9 @@ ryd::ryd! {
                 x += 1;
             }
 
-            x = si soit Quelque(resultat) = peut_etre(i) {
+            x = ef láta Quelque(resultat) = peut_etre(i) {
                 resultat.déballer()
-            } sinon {
+            } annars {
                 12
             };
         }
@@ -77,7 +77,7 @@ ryd::ryd! {
     }
 
     #[légal(code_inaccessible)]
-    fonction secondaire() {
+    fall secondaire() {
         merde!("oh non"); // for the true French experience
         calisse!("tabernacle"); // for friends speaking fr-ca
         oups!("fetchez la vache"); // in SFW contexts
